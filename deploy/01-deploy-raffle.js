@@ -34,11 +34,12 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     const callBackGasLimit = networkConfig[chainId]["callBackGasLimit"]
     const interval = networkConfig[chainId]["interval"]
 
-    console.log(`-------------1---------${entranceFee}------------------------------`)
-    console.log(`-------------2---------${gasLane}------------------------------`)
-    console.log(`-------------3---------${callBackGasLimit}------------------------------`)
-    console.log(`-------------4---------${interval}------------------------------`)
-    console.log(`-------------5---------${subscriptionId}------------------------------`)
+    // console.log(`-------------1---------${entranceFee}------------------------------`)
+    // console.log(`-------------2---------${gasLane}------------------------------`)
+    // console.log(`-------------3---------${callBackGasLimit}------------------------------`)
+    // console.log(`-------------4---------${interval}------------------------------`)
+    // console.log(`-------------5---------${subscriptionId}------------------------------`)
+
     const waitBlockConfirmations = developmentChains.includes(network.name)
         ? 1
         : VERIFICATION_BLOCK_CONFIRMATIONS
