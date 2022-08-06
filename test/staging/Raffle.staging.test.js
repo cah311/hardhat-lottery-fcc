@@ -29,7 +29,7 @@ developmentChains.includes(network.name)
                               try {
                                   // add our asserts here
                                   const recentWinner = await raffle.getRecentWinner()
-                                  const raffleState = await raffle.getraffleState()
+                                  const raffleState = await raffle.getRaffleState()
                                   const winnerEndingBalance = await accounts[0].getBalance()
                                   const endingTimeStamp = await raffle.getLatestTimeStamp()
 
