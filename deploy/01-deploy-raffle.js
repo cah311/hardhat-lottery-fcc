@@ -29,10 +29,12 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         subscriptionId = networkConfig[chainId]["subscriptionId"]
     }
 
+    /*
     const entranceFee = networkConfig[chainId]["entranceFee"]
     const gasLane = networkConfig[chainId]["gasLane"]
     const callBackGasLimit = networkConfig[chainId]["callBackGasLimit"]
     const interval = networkConfig[chainId]["interval"]
+    */
 
     // console.log(`-------------1---------${entranceFee}------------------------------`)
     // console.log(`-------------2---------${gasLane}------------------------------`)
@@ -47,11 +49,11 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     log("----------------------------------------------------")
     const arguments = [
         vrfCoordinatorV2Address,
-        entranceFee,
-        gasLane,
         subscriptionId,
-        callBackGasLimit,
-        interval,
+        networkConfig[chainId]["gasLane"],
+        networkConfig[chainId]["keepersUpdateInterval"],
+        networkConfig[chainId]["raffleEntranceFee"],
+        networkConfig[chainId]["callbackGasLimit"],
     ]
     const raffle = await deploy("Raffle", {
         from: deployer,
