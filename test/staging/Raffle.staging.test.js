@@ -15,7 +15,7 @@ developmentChains.includes(network.name)
           })
 
           describe("fulfillRandomWords", function () {
-              isCallTrace(
+              it(
                   "Works with live Chailink Keepers and Chainlink VRF, we get a random winner",
                   async function () {
                       // enter the raffle
