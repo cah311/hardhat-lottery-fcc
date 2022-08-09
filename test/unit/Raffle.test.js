@@ -141,7 +141,7 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
                       const accountConnectedRaffle = raffle.connect(accounts[i])
                       await accountConnectedRaffle.enterRaffle({ value: raffleEntranceFee })
                   }
-                  const startingTimeStamp = await raffle.getLatestTimeStamp() // stores starting timestamp (before we fire our event)
+                  const startingTimeStamp = await raffle.getLastTimeStamp() // stores starting timestamp (before we fire our event)
 
                   // This will be more important for our staging tests...
                   await new Promise(async (resolve, reject) => {
@@ -156,7 +156,7 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
                               const recentWinner = await raffle.getRecentWinner()
                               const raffleState = await raffle.getRaffleState()
                               const winnerBalance = await accounts[2].getBalance()
-                              const endingTimeStamp = await raffle.getLatestTimeStamp()
+                              const endingTimeStamp = await raffle.getLastTimeStamp()
                               await expect(raffle.getPlayer(0)).to.be.reverted
                               // Comparisons to check if our ending values are correct:
                               assert.equal(recentWinner.toString(), accounts[2].address)
