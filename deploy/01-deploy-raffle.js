@@ -50,11 +50,11 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     log("----------------------------------------------------")
     const arguments = [
         vrfCoordinatorV2Address,
-        subscriptionId,
+        networkConfig[chainId]["entranceFee"],
         networkConfig[chainId]["gasLane"],
-        networkConfig[chainId]["keepersUpdateInterval"],
-        networkConfig[chainId]["raffleEntranceFee"],
-        networkConfig[chainId]["callbackGasLimit"],
+        subscriptionId,
+        networkConfig[chainId]["callBackGasLimit"],
+        networkConfig[chainId]["interval"],
     ]
     const raffle = await deploy("Raffle", {
         from: deployer,
